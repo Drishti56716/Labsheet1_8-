@@ -1,0 +1,750 @@
+// ============================================================
+// Q1. Create a thread by extending Thread class
+// ============================================================
+
+class Q1Thread extends Thread {
+
+    @Override
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Divya");
+
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+class Q1 {
+    public static void main(String[] args) {
+
+        Q1Thread t = new Q1Thread();
+        t.start();
+    }
+}
+
+
+// ============================================================
+// Q2. Create a thread using Runnable interface
+// ============================================================
+
+class Q2Thread implements Runnable {
+
+    @Override
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Divya");
+
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+class Q2 {
+    public static void main(String[] args) {
+
+        Q2Thread obj = new Q2Thread();
+        Thread t = new Thread(obj);
+
+        t.start();
+    }
+}
+
+
+// ============================================================
+// Q3. Thread name and priority
+// ============================================================
+
+class Q3 {
+    public static void main(String[] args) {
+
+        Thread t = Thread.currentThread();
+
+        System.out.println("Original Name: " + t.getName());
+        System.out.println("Priority: " + t.getPriority());
+
+        t.setName("MyMainThread");
+
+        System.out.println("New Name: " + t.getName());
+    }
+}
+
+
+// ============================================================
+// Q4. Two threads printing name and count
+// ============================================================
+
+class Q4Thread extends Thread {
+
+    Q4Thread(String name) {
+        super(name);
+    }
+
+    @Override
+    public void run() {
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(
+                Thread.currentThread().getName() + " : " + i
+            );
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+class Q4 {
+    public static void main(String[] args) {
+
+        Q4Thread t1 = new Q4Thread("Thread-1");
+        Q4Thread t2 = new Q4Thread("Thread-2");
+
+        t1.start();
+        t2.start();
+    }
+}
+
+
+// ============================================================
+// Q5. Three threads with random sleep time
+// ============================================================
+
+class Q5Thread extends Thread {
+
+    Q5Thread(String name) {
+        super(name);
+    }
+
+    @Override
+    public void run() {
+
+        try {
+            int time = (int) (Math.random() * 501);
+
+            Thread.sleep(time);
+
+            System.out.println(
+                getName() + " : Message printed after "
+                + time + " ms"
+            );
+
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+class Q5 {
+    public static void main(String[] args) {
+
+        Q5Thread reader = new Q5Thread("Reader");
+        Q5Thread writer = new Q5Thread("Writer");
+        Q5Thread logger = new Q5Thread("Logger");
+
+        reader.start();
+        writer.start();
+        logger.start();
+    }
+}
+
+
+// ============================================================
+// Q6. Demonstrate isAlive()
+// ============================================================
+
+class Q6Thread extends Thread {
+
+    @Override
+    public void run() {
+
+        System.out.println("Thread is running...");
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        System.out.println("Thread finished.");
+    }
+}
+
+class Q6 {
+    public static void main(String[] args) {
+
+        Q6Thread t = new Q6Thread();
+
+        System.out.println("Before start: " + t.isAlive());
+
+        t.start();
+
+        System.out.println("While running: " + t.isAlive());
+
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        System.out.println("After finish: " + t.isAlive());
+    }
+}
+
+
+// ============================================================
+// Q7. Use join() for long-running task
+// ============================================================
+
+class Q7Thread extends Thread {
+
+    long sum = 0;
+
+    @Override
+    public void run() {
+
+        for (int i = 1; i <= 10000; i++) {
+            sum += i;
+        }
+
+        System.out.println("Sum = " + sum);
+    }
+}
+
+class Q7 {
+    public static void main(String[] args) {
+
+        Q7Thread t = new Q7Thread();
+
+        t.start();
+
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        System.out.println("Task finished");
+    }
+}
+
+
+// ============================================================
+// Q8. Thread priorities
+// ============================================================
+
+class Q8 {
+    public static void main(String[] args) {
+
+        Thread high = new Thread(() -> {
+            System.out.println("High priority thread running");
+        });
+
+        Thread low = new Thread(() -> {
+            System.out.println("Low priority thread running");
+        });
+
+        high.setPriority(Thread.MAX_PRIORITY);
+        low.setPriority(Thread.MIN_PRIORITY);
+
+        System.out.println(
+            "High Priority: " + high.getPriority()
+        );
+
+        System.out.println(
+            "Low Priority: " + low.getPriority()
+        );
+
+        high.start();
+        low.start();
+    }
+}
+
+
+// ============================================================
+// Q9. Five threads with different priorities
+// ============================================================
+
+class Q9Thread extends Thread {
+
+    Q9Thread(String name, int priority) {
+        super(name);
+        setPriority(priority);
+    }
+
+    @Override
+    public void run() {
+
+        for (int i = 1; i <= 5; i++) {
+
+            System.out.println(
+                getName()
+                + " | Priority: "
+                + getPriority()
+                + " | Count: "
+                + i
+            );
+        }
+    }
+}
+
+class Q9 {
+    public static void main(String[] args) {
+
+        Q9Thread t1 = new Q9Thread("Thread-1", 1);
+        Q9Thread t2 = new Q9Thread("Thread-2", 3);
+        Q9Thread t3 = new Q9Thread("Thread-3", 5);
+        Q9Thread t4 = new Q9Thread("Thread-4", 7);
+        Q9Thread t5 = new Q9Thread("Thread-5", 10);
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        t5.start();
+    }
+}
+
+
+// ============================================================
+// Q10. Bank Account Race Condition
+// ============================================================
+
+class BankAccountQ10 {
+
+    int balance = 10000;
+
+    void withdraw(int amount) {
+
+        if (balance >= amount) {
+
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+
+            balance -= amount;
+        }
+    }
+}
+
+class Q10Thread extends Thread {
+
+    BankAccountQ10 account;
+
+    Q10Thread(BankAccountQ10 account) {
+        this.account = account;
+    }
+
+    @Override
+    public void run() {
+
+        for (int i = 1; i <= 1000; i++) {
+            account.withdraw(10);
+        }
+    }
+}
+
+class Q10 {
+    public static void main(String[] args) {
+
+        BankAccountQ10 account = new BankAccountQ10();
+
+        Q10Thread t1 = new Q10Thread(account);
+        Q10Thread t2 = new Q10Thread(account);
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        System.out.println(
+            "Final Balance = " + account.balance
+        );
+
+        System.out.println(
+            "Expected Balance = -10000 (race condition may occur)"
+        );
+    }
+}
+
+
+// ============================================================
+// Q11. Fix Race Condition using synchronized method
+// ============================================================
+
+class BankAccountQ11 {
+
+    int balance = 10000;
+
+    synchronized void withdraw(int amount) {
+
+        if (balance >= amount) {
+
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+
+            balance -= amount;
+        }
+    }
+}
+
+class Q11Thread extends Thread {
+
+    BankAccountQ11 account;
+
+    Q11Thread(BankAccountQ11 account) {
+        this.account = account;
+    }
+
+    @Override
+    public void run() {
+
+        for (int i = 1; i <= 1000; i++) {
+            account.withdraw(10);
+        }
+    }
+}
+
+class Q11 {
+    public static void main(String[] args) {
+
+        BankAccountQ11 account = new BankAccountQ11();
+
+        Q11Thread t1 = new Q11Thread(account);
+        Q11Thread t2 = new Q11Thread(account);
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        System.out.println(
+            "Final Balance = " + account.balance
+        );
+    }
+}
+
+
+// ============================================================
+// Q12. Synchronized block using dedicated lock object
+// ============================================================
+
+class BankAccountQ12 {
+
+    int balance = 10000;
+
+    private final Object lock = new Object();
+
+    void withdraw(int amount) {
+
+        synchronized (lock) {
+
+            if (balance >= amount) {
+
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
+
+                balance -= amount;
+            }
+        }
+    }
+}
+
+class Q12Thread extends Thread {
+
+    BankAccountQ12 account;
+
+    Q12Thread(BankAccountQ12 account) {
+        this.account = account;
+    }
+
+    @Override
+    public void run() {
+
+        for (int i = 1; i <= 1000; i++) {
+            account.withdraw(10);
+        }
+    }
+}
+
+class Q12 {
+    public static void main(String[] args) {
+
+        BankAccountQ12 account = new BankAccountQ12();
+
+        Q12Thread t1 = new Q12Thread(account);
+        Q12Thread t2 = new Q12Thread(account);
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        System.out.println(
+            "Final Balance = " + account.balance
+        );
+    }
+}
+
+
+// ============================================================
+// Q13. Producer-Consumer using wait() and notify()
+// ============================================================
+
+class BufferQ13 {
+
+    private int value;
+    private boolean available = false;
+
+    synchronized void produce(int value) {
+
+        while (available) {
+
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+
+        this.value = value;
+        available = true;
+
+        System.out.println("Produced: " + value);
+
+        notify();
+    }
+
+    synchronized int consume() {
+
+        while (!available) {
+
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+
+        int result = value;
+        available = false;
+
+        System.out.println("Consumed: " + result);
+
+        notify();
+
+        return result;
+    }
+}
+
+class ProducerQ13 extends Thread {
+
+    BufferQ13 buffer;
+
+    ProducerQ13(BufferQ13 buffer) {
+        this.buffer = buffer;
+    }
+
+    @Override
+    public void run() {
+
+        for (int i = 1; i <= 10; i++) {
+            buffer.produce(i);
+        }
+    }
+}
+
+class ConsumerQ13 extends Thread {
+
+    BufferQ13 buffer;
+
+    ConsumerQ13(BufferQ13 buffer) {
+        this.buffer = buffer;
+    }
+
+    @Override
+    public void run() {
+
+        for (int i = 1; i <= 10; i++) {
+            buffer.consume();
+        }
+    }
+}
+
+class Q13 {
+    public static void main(String[] args) {
+
+        BufferQ13 buffer = new BufferQ13();
+
+        ProducerQ13 producer = new ProducerQ13(buffer);
+        ConsumerQ13 consumer = new ConsumerQ13(buffer);
+
+        producer.start();
+        consumer.start();
+    }
+}
+
+
+// ============================================================
+// Q14. Deadlock situation
+// ============================================================
+
+class Q14 {
+
+    static Object Lock1 = new Object();
+    static Object Lock2 = new Object();
+
+    public static void main(String[] args) {
+
+        Thread t1 = new Thread(() -> {
+
+            synchronized (Lock1) {
+
+                System.out.println(
+                    "Thread 1 locked Lock1"
+                );
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
+
+                synchronized (Lock2) {
+                    System.out.println(
+                        "Thread 1 locked Lock2"
+                    );
+                }
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+
+            synchronized (Lock2) {
+
+                System.out.println(
+                    "Thread 2 locked Lock2"
+                );
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
+
+                synchronized (Lock1) {
+                    System.out.println(
+                        "Thread 2 locked Lock1"
+                    );
+                }
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        // Program may never terminate because of deadlock.
+    }
+}
+
+
+// ============================================================
+// Q15. Fix Deadlock by acquiring locks in same order
+// ============================================================
+
+class Q15 {
+
+    static Object Lock1 = new Object();
+    static Object Lock2 = new Object();
+
+    public static void main(String[] args) {
+
+        Thread t1 = new Thread(() -> {
+
+            synchronized (Lock1) {
+
+                System.out.println(
+                    "Thread 1 locked Lock1"
+                );
+
+                synchronized (Lock2) {
+
+                    System.out.println(
+                        "Thread 1 locked Lock2"
+                    );
+
+                    System.out.println(
+                        "Thread 1 completed"
+                    );
+                }
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+
+            // Same order: Lock1 -> Lock2
+            synchronized (Lock1) {
+
+                System.out.println(
+                    "Thread 2 locked Lock1"
+                );
+
+                synchronized (Lock2) {
+
+                    System.out.println(
+                        "Thread 2 locked Lock2"
+                    );
+
+                    System.out.println(
+                        "Thread 2 completed"
+                    );
+                }
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        System.out.println("Program completed normally.");
+    }
+}
