@@ -1,0 +1,1210 @@
+//labsheet-4
+// Q1. Student Class
+class Student {
+    String name;
+    int age;
+
+    static int count = 0;
+
+    void setDetails(String n, int a) {
+        // Local variables
+        String studentName = n;
+        int studentAge = a;
+
+        name = studentName;
+        age = studentAge;
+        count++;
+    }
+
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+
+// Q2. Rectangle Class
+class Rectangle {
+    double length;
+    double breadth;
+
+    static String shapeName = "Rectangle";
+
+    void calculateArea(double l, double b) {
+        // Local variables
+        double rectLength = l;
+        double rectBreadth = b;
+        double area = rectLength * rectBreadth;
+
+        length = rectLength;
+        breadth = rectBreadth;
+
+        System.out.println("Shape: " + shapeName);
+        System.out.println("Length: " + length);
+        System.out.println("Breadth: " + breadth);
+        System.out.println("Area: " + area);
+    }
+}
+
+
+// Q3. Circle Class
+class Circle {
+    double radius;
+
+    static final double PI = 3.14;
+
+    void calculateCircle(double r) {
+        // Local variables
+        double circleRadius = r;
+        double area = PI * circleRadius * circleRadius;
+        double circumference = 2 * PI * circleRadius;
+
+        radius = circleRadius;
+
+        System.out.println("Radius: " + radius);
+        System.out.println("Area: " + area);
+        System.out.println("Circumference: " + circumference);
+    }
+}
+
+
+// Q4. Employee Class
+class Employee {
+    int empId;
+    double salary;
+
+    static String companyName = "Tech Solutions";
+
+    void setDetails(int id, double sal) {
+        // Local variables
+        int employeeId = id;
+        double employeeSalary = sal;
+
+        empId = employeeId;
+        salary = employeeSalary;
+
+        System.out.println("Employee ID: " + empId);
+        System.out.println("Salary: " + salary);
+        System.out.println("Company: " + companyName);
+    }
+}
+
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+
+        // Q1
+        System.out.println("----- Q1: Student -----");
+        Student s1 = new Student();
+        s1.setDetails("Kushagra", 20);
+        s1.displayDetails();
+
+        Student s2 = new Student();
+        s2.setDetails("Aditi", 19);
+        s2.displayDetails();
+
+        System.out.println("Total Students: " + Student.count);
+
+
+        // Q2
+        System.out.println("\n----- Q2: Rectangle -----");
+        Rectangle r = new Rectangle();
+        r.calculateArea(10, 5);
+
+
+        // Q3
+        System.out.println("\n----- Q3: Circle -----");
+        Circle c = new Circle();
+        c.calculateCircle(7);
+
+
+        // Q4
+        System.out.println("\n----- Q4: Employee -----");
+        Employee e = new Employee();
+        e.setDetails(101, 45000);
+    }
+}
+// Q5. Book Class
+class Book {
+    String title;
+    String author;
+    double price;
+
+    static String publisher = "Penguin Books";
+
+    void setDetails(String t, String a, double p) {
+        // Local variables
+        String bookTitle = t;
+        String bookAuthor = a;
+        double bookPrice = p;
+
+        title = bookTitle;
+        author = bookAuthor;
+        price = bookPrice;
+    }
+
+    void displayDetails() {
+        // Local variables
+        String bookTitle = title;
+        String bookAuthor = author;
+        double bookPrice = price;
+
+        System.out.println("Title: " + bookTitle);
+        System.out.println("Author: " + bookAuthor);
+        System.out.println("Price: " + bookPrice);
+        System.out.println("Publisher: " + publisher);
+    }
+}
+
+
+// Q6. Car Class
+class Car {
+    String brand;
+    double mileage;
+
+    static int wheels = 4;
+
+    void setDetails(String b, double m) {
+        // Local variables
+        String carBrand = b;
+        double carMileage = m;
+
+        brand = carBrand;
+        mileage = carMileage;
+    }
+
+    void displayDetails() {
+        // Local variables
+        String carBrand = brand;
+        double carMileage = mileage;
+        int carWheels = wheels;
+
+        System.out.println("Brand: " + carBrand);
+        System.out.println("Mileage: " + carMileage + " km/l");
+        System.out.println("Wheels: " + carWheels);
+    }
+}
+
+
+// Q7. BankAccount Class
+class BankAccount {
+    String accountNumber;
+    double balance;
+
+    static String bankName = "State Bank";
+
+    void setDetails(String accNo, double bal) {
+        accountNumber = accNo;
+        balance = bal;
+    }
+
+    void deposit(double amount) {
+        // Local variables
+        double depositAmount = amount;
+        double newBalance = balance + depositAmount;
+
+        balance = newBalance;
+
+        System.out.println("Deposited: " + depositAmount);
+        System.out.println("New Balance: " + newBalance);
+    }
+
+    void displayDetails() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Balance: " + balance);
+        System.out.println("Bank: " + bankName);
+    }
+}
+
+
+// Q8. Pen Class
+class Pen {
+    String color;
+    String type;
+
+    static String manufacturer = "Cello";
+
+    void setDetails(String c, String t) {
+        color = c;
+        type = t;
+    }
+
+    void displayDetails() {
+        // Local variables
+        String penColor = color;
+        String penType = type;
+        String penManufacturer = manufacturer;
+
+        System.out.println("Color: " + penColor);
+        System.out.println("Type: " + penType);
+        System.out.println("Manufacturer: " + penManufacturer);
+    }
+}
+
+
+// Q9. Laptop Class
+class Laptop {
+    String brand;
+    int RAM;
+
+    static String os = "Windows";
+
+    void setDetails(String b, int r) {
+        brand = b;
+        RAM = r;
+    }
+
+    void displayDetails() {
+        // Local variables
+        String laptopBrand = brand;
+        int laptopRAM = RAM;
+        String laptopOS = os;
+
+        System.out.println("Brand: " + laptopBrand);
+        System.out.println("RAM: " + laptopRAM + " GB");
+        System.out.println("Operating System: " + laptopOS);
+    }
+}
+
+
+// Q10. Movie Class
+class Movie {
+    String name;
+    String genre;
+    double rating;
+
+    static String industry = "Bollywood";
+
+    void setDetails(String n, String g, double r) {
+        name = n;
+        genre = g;
+        rating = r;
+    }
+
+    void displayDetails() {
+        // Local variables
+        String movieName = name;
+        String movieGenre = genre;
+        double movieRating = rating;
+        String movieIndustry = industry;
+
+        System.out.println("Name: " + movieName);
+        System.out.println("Genre: " + movieGenre);
+        System.out.println("Rating: " + movieRating);
+        System.out.println("Industry: " + movieIndustry);
+    }
+}
+
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+
+        // Q5
+        System.out.println("----- Q5: Book -----");
+        Book book = new Book();
+        book.setDetails("Java Programming", "James Gosling", 599);
+        book.displayDetails();
+
+
+        // Q6
+        System.out.println("\n----- Q6: Car -----");
+        Car car = new Car();
+        car.setDetails("Toyota", 20.5);
+        car.displayDetails();
+
+
+        // Q7
+        System.out.println("\n----- Q7: Bank Account -----");
+        BankAccount account = new BankAccount();
+        account.setDetails("1234567890", 10000);
+        account.displayDetails();
+        account.deposit(5000);
+
+
+        // Q8
+        System.out.println("\n----- Q8: Pen -----");
+        Pen pen = new Pen();
+        pen.setDetails("Blue", "Ball Pen");
+        pen.displayDetails();
+
+
+        // Q9
+        System.out.println("\n----- Q9: Laptop -----");
+        Laptop laptop = new Laptop();
+        laptop.setDetails("Dell", 16);
+        laptop.displayDetails();
+
+
+        // Q10
+        System.out.println("\n----- Q10: Movie -----");
+        Movie movie = new Movie();
+        movie.setDetails("3 Idiots", "Comedy/Drama", 8.4);
+        movie.displayDetails();
+    }
+}
+// Q11. Calculator Class
+class Calculator {
+
+    static int operationsCount = 0;
+
+    int add(int a, int b) {
+        // Local variables
+        int num1 = a;
+        int num2 = b;
+        int result = num1 + num2;
+
+        operationsCount++;
+        return result;
+    }
+
+    int subtract(int a, int b) {
+        // Local variables
+        int num1 = a;
+        int num2 = b;
+        int result = num1 - num2;
+
+        operationsCount++;
+        return result;
+    }
+
+    int multiply(int a, int b) {
+        // Local variables
+        int num1 = a;
+        int num2 = b;
+        int result = num1 * num2;
+
+        operationsCount++;
+        return result;
+    }
+
+    double divide(int a, int b) {
+        // Local variables
+        int num1 = a;
+        int num2 = b;
+        double result = (double) num1 / num2;
+
+        operationsCount++;
+        return result;
+    }
+}
+
+
+// Q12. StudentMarks Class
+class StudentMarks {
+
+    int marks1;
+    int marks2;
+    int marks3;
+
+    static String universityName = "COER University";
+
+    void setMarks(int m1, int m2, int m3) {
+        marks1 = m1;
+        marks2 = m2;
+        marks3 = m3;
+    }
+
+    void calculateAverage() {
+        // Local variables
+        int mark1 = marks1;
+        int mark2 = marks2;
+        int mark3 = marks3;
+
+        int total = mark1 + mark2 + mark3;
+        double average = total / 3.0;
+
+        System.out.println("University: " + universityName);
+        System.out.println("Marks 1: " + mark1);
+        System.out.println("Marks 2: " + mark2);
+        System.out.println("Marks 3: " + mark3);
+        System.out.println("Total Marks: " + total);
+        System.out.println("Average: " + average);
+    }
+}
+
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+
+        // Q11
+        System.out.println("----- Q11: Calculator -----");
+
+        Calculator calc = new Calculator();
+
+        System.out.println("Addition: " + calc.add(20, 10));
+        System.out.println("Subtraction: " + calc.subtract(20, 10));
+        System.out.println("Multiplication: " + calc.multiply(20, 10));
+        System.out.println("Division: " + calc.divide(20, 10));
+
+        System.out.println("Total Operations: "
+                + Calculator.operationsCount);
+
+
+        // Q12
+        System.out.println("\n----- Q12: Student Marks -----");
+
+        StudentMarks student = new StudentMarks();
+
+        student.setMarks(85, 90, 95);
+        student.calculateAverage();
+    }
+}
+// Q13. Temperature Class
+class Temperature {
+    double celsius;
+
+    static String scale = "Celsius";
+
+    void setTemperature(double c) {
+        celsius = c;
+    }
+
+    void convert() {
+        // Local variables
+        double tempCelsius = celsius;
+        double fahrenheit = (tempCelsius * 9 / 5) + 32;
+        double kelvin = tempCelsius + 273.15;
+
+        System.out.println("Temperature: " + tempCelsius + " " + scale);
+        System.out.println("Fahrenheit: " + fahrenheit);
+        System.out.println("Kelvin: " + kelvin);
+    }
+}
+
+
+// Q14. Person Class
+class Person {
+    String name;
+    int age;
+
+    static String country = "India";
+
+    void setDetails(String n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void checkEligibility() {
+        // Local variables
+        String personName = name;
+        int personAge = age;
+        boolean eligible = personAge >= 18;
+
+        System.out.println("Name: " + personName);
+        System.out.println("Age: " + personAge);
+        System.out.println("Country: " + country);
+
+        if (eligible) {
+            System.out.println("Voting Eligibility: Eligible");
+        } else {
+            System.out.println("Voting Eligibility: Not Eligible");
+        }
+    }
+}
+
+
+// Q15. SimpleInterest Class
+class SimpleInterest {
+    double principal;
+    double rate;
+    double time;
+
+    static String bank = "State Bank";
+
+    void setDetails(double p, double r, double t) {
+        principal = p;
+        rate = r;
+        time = t;
+    }
+
+    void calculateInterest() {
+        // Local variables
+        double amount = principal;
+        double interestRate = rate;
+        double years = time;
+
+        double interest = (amount * interestRate * years) / 100;
+
+        System.out.println("Bank: " + bank);
+        System.out.println("Principal: " + amount);
+        System.out.println("Rate: " + interestRate + "%");
+        System.out.println("Time: " + years + " years");
+        System.out.println("Simple Interest: " + interest);
+    }
+}
+
+
+// Q16. Triangle Class
+class Triangle {
+    double a;
+    double b;
+    double c;
+
+    static String type = "Scalene/Isosceles/Equilateral";
+
+    void setSides(double x, double y, double z) {
+        a = x;
+        b = y;
+        c = z;
+    }
+
+    void checkValidity() {
+        // Local variables
+        double sideA = a;
+        double sideB = b;
+        double sideC = c;
+
+        boolean valid = (sideA + sideB > sideC)
+                && (sideB + sideC > sideA)
+                && (sideA + sideC > sideB);
+
+        System.out.println("Sides: " + sideA + ", " + sideB + ", " + sideC);
+
+        if (valid) {
+            System.out.println("Triangle: Valid");
+
+            if (sideA == sideB && sideB == sideC) {
+                System.out.println("Type: Equilateral");
+            } else if (sideA == sideB || sideB == sideC || sideA == sideC) {
+                System.out.println("Type: Isosceles");
+            } else {
+                System.out.println("Type: Scalene");
+            }
+        } else {
+            System.out.println("Triangle: Invalid");
+        }
+    }
+}
+
+
+// Q17. StudentGrade Class
+class StudentGrade {
+    String name;
+    double marks;
+
+    static double passingMarks = 40;
+
+    void setDetails(String n, double m) {
+        name = n;
+        marks = m;
+    }
+
+    void assignGrade() {
+        // Local variables
+        String studentName = name;
+        double studentMarks = marks;
+        char grade;
+
+        if (studentMarks >= 90) {
+            grade = 'A';
+        } else if (studentMarks >= 75) {
+            grade = 'B';
+        } else if (studentMarks >= 60) {
+            grade = 'C';
+        } else if (studentMarks >= passingMarks) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+
+        System.out.println("Name: " + studentName);
+        System.out.println("Marks: " + studentMarks);
+        System.out.println("Grade: " + grade);
+    }
+}
+
+
+// Q18. ElectricBill Class
+class ElectricBill {
+    double units;
+
+    static double fixedCharge = 100;
+
+    void setUnits(double u) {
+        units = u;
+    }
+
+    void calculateBill() {
+        // Local variables
+        double consumedUnits = units;
+        double unitRate = 5;
+        double energyCharge = consumedUnits * unitRate;
+        double totalBill = energyCharge + fixedCharge;
+
+        System.out.println("Units: " + consumedUnits);
+        System.out.println("Energy Charge: " + energyCharge);
+        System.out.println("Fixed Charge: " + fixedCharge);
+        System.out.println("Total Bill: " + totalBill);
+    }
+}
+
+
+// Q19. Product Class
+class Product {
+    int id;
+    String name;
+    double price;
+
+    static double discountRate = 10;
+
+    void setDetails(int i, String n, double p) {
+        id = i;
+        name = n;
+        price = p;
+    }
+
+    void calculateFinalPrice() {
+        // Local variables
+        double productPrice = price;
+        double discount = (productPrice * discountRate) / 100;
+        double finalPrice = productPrice - discount;
+
+        System.out.println("Product ID: " + id);
+        System.out.println("Product Name: " + name);
+        System.out.println("Original Price: " + productPrice);
+        System.out.println("Discount: " + discount);
+        System.out.println("Final Price: " + finalPrice);
+    }
+}
+
+
+// Q20. BankAccount Class
+class BankAccount {
+    double balance;
+
+    static String bankCode = "SBI001";
+
+    void setBalance(double b) {
+        balance = b;
+    }
+
+    void withdraw(double amount) {
+        // Local variables
+        double currentBalance = balance;
+        double withdrawalAmount = amount;
+
+        if (withdrawalAmount <= currentBalance) {
+            currentBalance = currentBalance - withdrawalAmount;
+            balance = currentBalance;
+
+            System.out.println("Withdrawal Successful");
+            System.out.println("Withdrawn: " + withdrawalAmount);
+            System.out.println("Remaining Balance: " + currentBalance);
+        } else {
+            System.out.println("Withdrawal Failed");
+            System.out.println("Insufficient Balance");
+            System.out.println("Available Balance: " + currentBalance);
+        }
+    }
+}
+
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+
+        // Q13
+        System.out.println("----- Q13: Temperature -----");
+        Temperature temp = new Temperature();
+        temp.setTemperature(25);
+        temp.convert();
+
+
+        // Q14
+        System.out.println("\n----- Q14: Person -----");
+        Person person = new Person();
+        person.setDetails("Kushagra", 20);
+        person.checkEligibility();
+
+
+        // Q15
+        System.out.println("\n----- Q15: Simple Interest -----");
+        SimpleInterest si = new SimpleInterest();
+        si.setDetails(10000, 5, 2);
+        si.calculateInterest();
+
+
+        // Q16
+        System.out.println("\n----- Q16: Triangle -----");
+        Triangle triangle = new Triangle();
+        triangle.setSides(5, 5, 6);
+        triangle.checkValidity();
+
+
+        // Q17
+        System.out.println("\n----- Q17: Student Grade -----");
+        StudentGrade student = new StudentGrade();
+        student.setDetails("Kushagra", 85);
+        student.assignGrade();
+
+
+        // Q18
+        System.out.println("\n----- Q18: Electric Bill -----");
+        ElectricBill bill = new ElectricBill();
+        bill.setUnits(100);
+        bill.calculateBill();
+
+
+        // Q19
+        System.out.println("\n----- Q19: Product -----");
+        Product product = new Product();
+        product.setDetails(101, "Laptop", 50000);
+        product.calculateFinalPrice();
+
+
+        // Q20
+        System.out.println("\n----- Q20: Bank Account -----");
+        BankAccount account = new BankAccount();
+        account.setBalance(10000);
+        System.out.println("Bank Code: " + BankAccount.bankCode);
+        account.withdraw(3000);
+    }
+}
+// Q21. Palindrome Class
+class Palindrome {
+
+    static int countChecks = 0;
+
+    void checkPalindrome(int number) {
+        // Local variables
+        int original = number;
+        int temp = number;
+        int reverse = 0;
+
+        while (temp != 0) {
+            int digit = temp % 10;
+            reverse = reverse * 10 + digit;
+            temp = temp / 10;
+        }
+
+        countChecks++;
+
+        System.out.println("Number: " + original);
+
+        if (original == reverse) {
+            System.out.println("Palindrome: Yes");
+        } else {
+            System.out.println("Palindrome: No");
+        }
+    }
+}
+
+
+// Q22. Armstrong Class
+class Armstrong {
+
+    static int totalChecks = 0;
+
+    void checkArmstrong(int number) {
+        // Local variables
+        int original = number;
+        int temp = number;
+        int digits = 0;
+        int sum = 0;
+
+        while (temp != 0) {
+            digits++;
+            temp = temp / 10;
+        }
+
+        temp = number;
+
+        while (temp != 0) {
+            int digit = temp % 10;
+            sum += Math.pow(digit, digits);
+            temp = temp / 10;
+        }
+
+        totalChecks++;
+
+        System.out.println("Number: " + original);
+
+        if (sum == original) {
+            System.out.println("Armstrong: Yes");
+        } else {
+            System.out.println("Armstrong: No");
+        }
+    }
+}
+
+
+// Q23. PrimeChecker Class
+class PrimeChecker {
+
+    static int totalPrimeChecks = 0;
+
+    void checkPrime(int number) {
+        // Local variables
+        int num = number;
+        boolean prime = true;
+
+        if (num <= 1) {
+            prime = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    prime = false;
+                    break;
+                }
+            }
+        }
+
+        totalPrimeChecks++;
+
+        System.out.println("Number: " + num);
+
+        if (prime) {
+            System.out.println("Prime: Yes");
+        } else {
+            System.out.println("Prime: No");
+        }
+    }
+}
+
+
+// Q24. Fibonacci Class
+class Fibonacci {
+
+    static int seriesCount = 0;
+
+    void displaySeries(int n) {
+        // Local variables
+        int terms = n;
+        int first = 0;
+        int second = 1;
+
+        seriesCount++;
+
+        System.out.print("Fibonacci Series: ");
+
+        for (int i = 1; i <= terms; i++) {
+            System.out.print(first + " ");
+
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+
+        System.out.println();
+    }
+}
+
+
+// Q25. Factorial Class
+class Factorial {
+
+    static int totalCalls = 0;
+
+    void calculateFactorial(int number) {
+        // Local variables
+        int num = number;
+        long factorial = 1;
+
+        for (int i = 1; i <= num; i++) {
+            factorial = factorial * i;
+        }
+
+        totalCalls++;
+
+        System.out.println("Number: " + num);
+        System.out.println("Factorial: " + factorial);
+    }
+}
+
+
+// Q26. Matrix Class
+class Matrix {
+
+    int[][] matrix1 = new int[2][2];
+    int[][] matrix2 = new int[2][2];
+
+    static String matrixType = "2x2 Matrix";
+
+    void setMatrices(int[][] m1, int[][] m2) {
+        matrix1 = m1;
+        matrix2 = m2;
+    }
+
+    void addMatrices() {
+        // Local variable
+        int[][] result = new int[2][2];
+
+        System.out.println("Matrix Addition:");
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                result[i][j] = matrix1[i][j] + matrix2[i][j];
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    void subtractMatrices() {
+        // Local variable
+        int[][] result = new int[2][2];
+
+        System.out.println("Matrix Subtraction:");
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                result[i][j] = matrix1[i][j] - matrix2[i][j];
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+// Q27. StringReverse Class
+class StringReverse {
+
+    static int totalReversals = 0;
+
+    void reverseString(String text) {
+        // Local variables
+        String original = text;
+        String reverse = "";
+
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reverse = reverse + original.charAt(i);
+        }
+
+        totalReversals++;
+
+        System.out.println("Original String: " + original);
+        System.out.println("Reversed String: " + reverse);
+    }
+}
+
+
+// Q28. WordCounter Class
+class WordCounter {
+
+    static String language = "English";
+
+    void countWords(String sentence) {
+        // Local variables
+        String text = sentence.trim();
+        int wordCount = 0;
+
+        if (!text.isEmpty()) {
+            String[] words = text.split("\\s+");
+            wordCount = words.length;
+        }
+
+        System.out.println("Language: " + language);
+        System.out.println("Sentence: " + text);
+        System.out.println("Word Count: " + wordCount);
+    }
+}
+
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+
+        // Q21
+        System.out.println("----- Q21: Palindrome -----");
+        Palindrome palindrome = new Palindrome();
+        palindrome.checkPalindrome(121);
+        palindrome.checkPalindrome(123);
+
+        System.out.println("Total Checks: "
+                + Palindrome.countChecks);
+
+
+        // Q22
+        System.out.println("\n----- Q22: Armstrong -----");
+        Armstrong armstrong = new Armstrong();
+        armstrong.checkArmstrong(153);
+        armstrong.checkArmstrong(123);
+
+        System.out.println("Total Checks: "
+                + Armstrong.totalChecks);
+
+
+        // Q23
+        System.out.println("\n----- Q23: Prime Checker -----");
+        PrimeChecker prime = new PrimeChecker();
+        prime.checkPrime(17);
+        prime.checkPrime(20);
+
+        System.out.println("Total Prime Checks: "
+                + PrimeChecker.totalPrimeChecks);
+
+
+        // Q24
+        System.out.println("\n----- Q24: Fibonacci -----");
+        Fibonacci fibonacci = new Fibonacci();
+        fibonacci.displaySeries(10);
+
+        System.out.println("Series Count: "
+                + Fibonacci.seriesCount);
+
+
+        // Q25
+        System.out.println("\n----- Q25: Factorial -----");
+        Factorial factorial = new Factorial();
+        factorial.calculateFactorial(5);
+
+        System.out.println("Total Calls: "
+                + Factorial.totalCalls);
+
+
+        // Q26
+        System.out.println("\n----- Q26: Matrix -----");
+        System.out.println("Matrix Type: " + Matrix.matrixType);
+
+        int[][] matrixA = {
+            {1, 2},
+            {3, 4}
+        };
+
+        int[][] matrixB = {
+            {5, 6},
+            {7, 8}
+        };
+
+        Matrix matrix = new Matrix();
+        matrix.setMatrices(matrixA, matrixB);
+        matrix.addMatrices();
+        matrix.subtractMatrices();
+
+
+        // Q27
+        System.out.println("\n----- Q27: String Reverse -----");
+        StringReverse stringReverse = new StringReverse();
+        stringReverse.reverseString("Java Programming");
+
+        System.out.println("Total Reversals: "
+                + StringReverse.totalReversals);
+
+
+        // Q28
+        System.out.println("\n----- Q28: Word Counter -----");
+        WordCounter wordCounter = new WordCounter();
+        wordCounter.countWords("Java is an object oriented programming language");
+    }
+}
+// Q29. Employee Class
+class Employee {
+
+    String name;
+    double salary;
+
+    static String organization = "Tech Solutions";
+
+    void setDetails(String n, double s) {
+        name = n;
+        salary = s;
+    }
+
+    void compareSalary(Employee other) {
+        // Local variables
+        String employee1Name = this.name;
+        double employee1Salary = this.salary;
+
+        String employee2Name = other.name;
+        double employee2Salary = other.salary;
+
+        System.out.println("Organization: " + organization);
+        System.out.println(employee1Name + " Salary: " + employee1Salary);
+        System.out.println(employee2Name + " Salary: " + employee2Salary);
+
+        if (employee1Salary > employee2Salary) {
+            System.out.println(employee1Name + " has higher salary.");
+        } else if (employee2Salary > employee1Salary) {
+            System.out.println(employee2Name + " has higher salary.");
+        } else {
+            System.out.println("Both employees have equal salary.");
+        }
+    }
+}
+
+
+// Q30. Library Class
+class Library {
+
+    int booksAvailable;
+
+    static String libraryName = "Central Library";
+
+    void setBooks(int books) {
+        booksAvailable = books;
+    }
+
+    void issueBook(int numberOfBooks) {
+        // Local variables
+        int availableBooks = booksAvailable;
+        int issueCount = numberOfBooks;
+
+        if (issueCount <= availableBooks) {
+            availableBooks = availableBooks - issueCount;
+            booksAvailable = availableBooks;
+
+            System.out.println("Books Issued: " + issueCount);
+            System.out.println("Books Available: " + availableBooks);
+        } else {
+            System.out.println("Issue Failed.");
+            System.out.println("Not enough books available.");
+        }
+    }
+
+    void returnBook(int numberOfBooks) {
+        // Local variables
+        int availableBooks = booksAvailable;
+        int returnCount = numberOfBooks;
+
+        availableBooks = availableBooks + returnCount;
+        booksAvailable = availableBooks;
+
+        System.out.println("Books Returned: " + returnCount);
+        System.out.println("Books Available: " + availableBooks);
+    }
+
+    void displayDetails() {
+        // Local variable
+        int availableBooks = booksAvailable;
+
+        System.out.println("Library: " + libraryName);
+        System.out.println("Books Available: " + availableBooks);
+    }
+}
+
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+
+        // Q29
+        System.out.println("----- Q29: Employee -----");
+
+        Employee employee1 = new Employee();
+        employee1.setDetails("Kushagra", 50000);
+
+        Employee employee2 = new Employee();
+        employee2.setDetails("Aditi", 45000);
+
+        employee1.compareSalary(employee2);
+
+
+        // Q30
+        System.out.println("\n----- Q30: Library -----");
+
+        Library library = new Library();
+        library.setBooks(100);
+
+        library.displayDetails();
+
+        library.issueBook(10);
+
+        library.returnBook(5);
+
+        library.displayDetails();
+    }
+}
