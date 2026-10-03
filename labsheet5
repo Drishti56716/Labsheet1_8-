@@ -1,0 +1,1072 @@
+// ============================================================
+// Q1. Student Encapsulation
+// ============================================================
+
+class StudentQ1 {
+    private String name;
+    private int rollNo;
+    private double marks;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setRollNo(int rollNo) {
+        this.rollNo = rollNo;
+    }
+
+    public int getRollNo() {
+        return rollNo;
+    }
+
+    public void setMarks(double marks) {
+        this.marks = marks;
+    }
+
+    public double getMarks() {
+        return marks;
+    }
+
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Marks: " + marks);
+    }
+}
+
+
+// ============================================================
+// Q2. Bank Account with Validation
+// ============================================================
+
+class BankAccountQ2 {
+    private String accountNumber;
+    private String accountHolder;
+    private double balance;
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    public void setAccountHolder(String accountHolder) {
+        this.accountHolder = accountHolder;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= 0) {
+            System.out.println("Invalid withdrawal amount.");
+        } else if (amount > balance) {
+            System.out.println("Insufficient balance.");
+        } else {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        }
+    }
+}
+
+
+// ============================================================
+// Q3. Employee Salary Encapsulation
+// ============================================================
+
+class EmployeeQ3 {
+    private int employeeId;
+    private String employeeName;
+    private double salary;
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        if (salary < 0 || salary > 1000000) {
+            System.out.println("Invalid salary: " + salary);
+        } else {
+            this.salary = salary;
+            System.out.println("Salary accepted: " + salary);
+        }
+    }
+
+    public void displayDetails() {
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Employee Name: " + employeeName);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+
+// ============================================================
+// Q4. Animal -> Dog
+// ============================================================
+
+class AnimalQ4 {
+    void eat() {
+        System.out.println("Animal is eating.");
+    }
+
+    void sleep() {
+        System.out.println("Animal is sleeping.");
+    }
+}
+
+class DogQ4 extends AnimalQ4 {
+    void bark() {
+        System.out.println("Dog is barking.");
+    }
+}
+
+
+// ============================================================
+// Q5. Person -> Student
+// ============================================================
+
+class PersonQ5 {
+    String name;
+    int age;
+
+    void displayPerson() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+class StudentQ5 extends PersonQ5 {
+    int rollNo;
+    String course;
+
+    void displayStudent() {
+        displayPerson();
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Course: " + course);
+    }
+}
+
+
+// ============================================================
+// Q6. Employee -> Manager with Encapsulation
+// ============================================================
+
+class EmployeeQ6 {
+    private String name;
+    private double salary;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+}
+
+class ManagerQ6 extends EmployeeQ6 {
+    String department;
+
+    void displayManager() {
+        System.out.println("Name: " + getName());
+        System.out.println("Salary: " + getSalary());
+        System.out.println("Department: " + department);
+    }
+}
+
+
+// ============================================================
+// Q7. Animal -> Dog -> Puppy
+// ============================================================
+
+class AnimalQ7 {
+    void eat() {
+        System.out.println("Animal is eating.");
+    }
+}
+
+class DogQ7 extends AnimalQ7 {
+    void bark() {
+        System.out.println("Dog is barking.");
+    }
+}
+
+class PuppyQ7 extends DogQ7 {
+    void play() {
+        System.out.println("Puppy is playing.");
+    }
+}
+
+
+// ============================================================
+// Q8. Person -> Employee -> Manager
+// ============================================================
+
+class PersonQ8 {
+    String name;
+
+    void displayName() {
+        System.out.println("Name: " + name);
+    }
+}
+
+class EmployeeQ8 extends PersonQ8 {
+    int employeeId;
+
+    void displayEmployee() {
+        displayName();
+        System.out.println("Employee ID: " + employeeId);
+    }
+}
+
+class ManagerQ8 extends EmployeeQ8 {
+    String department;
+
+    void displayManager() {
+        displayEmployee();
+        System.out.println("Department: " + department);
+    }
+}
+
+
+// ============================================================
+// Q9. Vehicle -> Car -> ElectricCar
+// ============================================================
+
+class VehicleQ9 {
+    void start() {
+        System.out.println("Vehicle started.");
+    }
+
+    void stop() {
+        System.out.println("Vehicle stopped.");
+    }
+}
+
+class CarQ9 extends VehicleQ9 {
+    void drive() {
+        System.out.println("Car is driving.");
+    }
+}
+
+class ElectricCarQ9 extends CarQ9 {
+    void chargeBattery() {
+        System.out.println("Electric car battery is charging.");
+    }
+}
+
+
+// ============================================================
+// Q10. Animal -> Dog and Cat
+// ============================================================
+
+class AnimalQ10 {
+    void eat() {
+        System.out.println("Animal is eating.");
+    }
+}
+
+class DogQ10 extends AnimalQ10 {
+    void bark() {
+        System.out.println("Dog is barking.");
+    }
+}
+
+class CatQ10 extends AnimalQ10 {
+    void meow() {
+        System.out.println("Cat is meowing.");
+    }
+}
+
+
+// ============================================================
+// Q11. Person -> Student and Teacher
+// ============================================================
+
+class PersonQ11 {
+    String name;
+
+    void displayName() {
+        System.out.println("Name: " + name);
+    }
+}
+
+class StudentQ11 extends PersonQ11 {
+    String course;
+
+    void study() {
+        System.out.println("Student is studying " + course);
+    }
+}
+
+class TeacherQ11 extends PersonQ11 {
+    String subject;
+
+    void teach() {
+        System.out.println("Teacher is teaching " + subject);
+    }
+}
+
+
+// ============================================================
+// Q12. Employee -> Developer and Manager
+// ============================================================
+
+class EmployeeQ12 {
+    String employeeName;
+    int employeeId;
+
+    void displayEmployee() {
+        System.out.println("Employee Name: " + employeeName);
+        System.out.println("Employee ID: " + employeeId);
+    }
+}
+
+class DeveloperQ12 extends EmployeeQ12 {
+    String programmingLanguage;
+
+    void writeCode() {
+        System.out.println("Developer writes code in " + programmingLanguage);
+    }
+}
+
+class ManagerQ12 extends EmployeeQ12 {
+    String department;
+
+    void conductMeeting() {
+        System.out.println("Manager conducts meeting in " + department);
+    }
+}
+
+
+// ============================================================
+// Q13. Animal Sound Overriding
+// ============================================================
+
+class AnimalQ13 {
+    void makeSound() {
+        System.out.println("Animal makes a sound.");
+    }
+}
+
+class DogQ13 extends AnimalQ13 {
+    @Override
+    void makeSound() {
+        System.out.println("Dog is barking.");
+    }
+}
+
+class CatQ13 extends AnimalQ13 {
+    @Override
+    void makeSound() {
+        System.out.println("Cat is meowing.");
+    }
+}
+
+
+// ============================================================
+// Q14. Employee Salary Calculation
+// ============================================================
+
+class EmployeeQ14 {
+    double salary = 50000;
+
+    double calculateSalary() {
+        return salary;
+    }
+}
+
+class ManagerQ14 extends EmployeeQ14 {
+
+    @Override
+    double calculateSalary() {
+        return salary + 10000;
+    }
+}
+
+
+// ============================================================
+// Q15. Shape Area Overriding
+// ============================================================
+
+class ShapeQ15 {
+    double calculateArea() {
+        return 0;
+    }
+}
+
+class CircleQ15 extends ShapeQ15 {
+    double radius;
+
+    CircleQ15(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class RectangleQ15 extends ShapeQ15 {
+    double length;
+    double breadth;
+
+    RectangleQ15(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    @Override
+    double calculateArea() {
+        return length * breadth;
+    }
+}
+
+
+// ============================================================
+// Q16. Camera + MusicPlayer -> Smartphone
+// ============================================================
+
+interface CameraQ16 {
+    void takePhoto();
+}
+
+interface MusicPlayerQ16 {
+    void playMusic();
+}
+
+class SmartphoneQ16 implements CameraQ16, MusicPlayerQ16 {
+
+    @Override
+    public void takePhoto() {
+        System.out.println("Smartphone takes a photo.");
+    }
+
+    @Override
+    public void playMusic() {
+        System.out.println("Smartphone plays music.");
+    }
+}
+
+
+// ============================================================
+// Q17. Printer + Scanner -> MultiFunctionMachine
+// ============================================================
+
+interface PrinterQ17 {
+    void print();
+}
+
+interface ScannerQ17 {
+    void scan();
+}
+
+class MultiFunctionMachineQ17 implements PrinterQ17, ScannerQ17 {
+
+    private String machineName;
+    private int machineId;
+
+    public void setMachineName(String machineName) {
+        this.machineName = machineName;
+    }
+
+    public String getMachineName() {
+        return machineName;
+    }
+
+    public void setMachineId(int machineId) {
+        this.machineId = machineId;
+    }
+
+    public int getMachineId() {
+        return machineId;
+    }
+
+    @Override
+    public void print() {
+        System.out.println("Machine is printing.");
+    }
+
+    @Override
+    public void scan() {
+        System.out.println("Machine is scanning.");
+    }
+}
+
+
+// ============================================================
+// Q18. Vehicle -> Car -> ElectricCar + Electric
+// ============================================================
+
+class VehicleQ18 {
+    void start() {
+        System.out.println("Vehicle started.");
+    }
+}
+
+class CarQ18 extends VehicleQ18 {
+    void drive() {
+        System.out.println("Car is driving.");
+    }
+}
+
+interface ElectricQ18 {
+    void chargeBattery();
+}
+
+class ElectricCarQ18 extends CarQ18 implements ElectricQ18 {
+
+    @Override
+    public void chargeBattery() {
+        System.out.println("Electric car battery is charging.");
+    }
+}
+
+
+// ============================================================
+// Q19. Employee -> Developer + Programmer + Researcher
+// ============================================================
+
+class EmployeeQ19 {
+    private String name;
+    private int employeeId;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    void displayEmployee() {
+        System.out.println("Name: " + name);
+        System.out.println("Employee ID: " + employeeId);
+    }
+}
+
+interface ProgrammerQ19 {
+    void writeCode();
+}
+
+interface ResearcherQ19 {
+    void conductResearch();
+}
+
+class DeveloperQ19 extends EmployeeQ19
+        implements ProgrammerQ19, ResearcherQ19 {
+
+    @Override
+    public void writeCode() {
+        System.out.println("Developer is writing code.");
+    }
+
+    @Override
+    public void conductResearch() {
+        System.out.println("Developer is conducting research.");
+    }
+}
+
+
+// ============================================================
+// Q20. University Employee System - Integrated OOP
+// ============================================================
+
+class EmployeeQ20 {
+    private int employeeId;
+    private String employeeName;
+    private double salary;
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    void displayDetails() {
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Employee Name: " + employeeName);
+        System.out.println("Salary: " + salary);
+    }
+
+    double calculateSalary() {
+        return salary;
+    }
+}
+
+interface ResearcherQ20 {
+    void conductResearch();
+}
+
+class TeacherQ20 extends EmployeeQ20 implements ResearcherQ20 {
+
+    String subject;
+
+    void teach() {
+        System.out.println("Teacher teaches: " + subject);
+    }
+
+    @Override
+    public void conductResearch() {
+        System.out.println("Teacher is conducting research.");
+    }
+
+    @Override
+    double calculateSalary() {
+        return super.calculateSalary() + 5000;
+    }
+}
+
+class VisitingTeacherQ20 extends TeacherQ20 {
+
+    int hoursWorked;
+
+    @Override
+    double calculateSalary() {
+        return hoursWorked * 500;
+    }
+}
+
+class AdminQ20 extends EmployeeQ20 {
+
+    String department;
+
+    void manageDepartment() {
+        System.out.println("Managing department: " + department);
+    }
+}
+
+
+// ============================================================
+// MAIN CLASS
+// ============================================================
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // --------------------------------------------------------
+        // Q1. Student Encapsulation
+        // --------------------------------------------------------
+        System.out.println("\n========== Q1 ==========");
+
+        StudentQ1 s1 = new StudentQ1();
+
+        s1.setName("Divya");
+        s1.setRollNo(101);
+        s1.setMarks(85.5);
+
+        s1.displayDetails();
+
+        System.out.println("Using Getter:");
+        System.out.println(s1.getName());
+        System.out.println(s1.getRollNo());
+        System.out.println(s1.getMarks());
+
+
+        // --------------------------------------------------------
+        // Q2. Bank Account
+        // --------------------------------------------------------
+        System.out.println("\n========== Q2 ==========");
+
+        BankAccountQ2 account = new BankAccountQ2();
+
+        account.setAccountNumber("ACC101");
+        account.setAccountHolder("Divya");
+        account.setBalance(5000);
+
+        System.out.println("Account Holder: " + account.getAccountHolder());
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Balance: " + account.getBalance());
+
+        account.deposit(2000);
+        account.withdraw(1000);
+        account.withdraw(10000);
+
+
+        // --------------------------------------------------------
+        // Q3. Employee Salary
+        // --------------------------------------------------------
+        System.out.println("\n========== Q3 ==========");
+
+        EmployeeQ3 emp3 = new EmployeeQ3();
+
+        emp3.setEmployeeId(101);
+        emp3.setEmployeeName("Rahul");
+
+        emp3.setSalary(50000);       // Valid
+        emp3.setSalary(-5000);       // Invalid
+        emp3.setSalary(1500000);     // Invalid
+
+        emp3.displayDetails();
+
+
+        // --------------------------------------------------------
+        // Q4. Animal -> Dog
+        // --------------------------------------------------------
+        System.out.println("\n========== Q4 ==========");
+
+        DogQ4 dog4 = new DogQ4();
+
+        dog4.eat();
+        dog4.sleep();
+        dog4.bark();
+
+
+        // --------------------------------------------------------
+        // Q5. Person -> Student
+        // --------------------------------------------------------
+        System.out.println("\n========== Q5 ==========");
+
+        StudentQ5 student5 = new StudentQ5();
+
+        student5.name = "Aman";
+        student5.age = 20;
+        student5.rollNo = 102;
+        student5.course = "BCA";
+
+        student5.displayStudent();
+
+
+        // --------------------------------------------------------
+        // Q6. Employee -> Manager with Encapsulation
+        // --------------------------------------------------------
+        System.out.println("\n========== Q6 ==========");
+
+        ManagerQ6 manager6 = new ManagerQ6();
+
+        manager6.setName("Priya");
+        manager6.setSalary(75000);
+        manager6.department = "IT";
+
+        manager6.displayManager();
+
+
+        // --------------------------------------------------------
+        // Q7. Animal -> Dog -> Puppy
+        // --------------------------------------------------------
+        System.out.println("\n========== Q7 ==========");
+
+        PuppyQ7 puppy7 = new PuppyQ7();
+
+        puppy7.eat();
+        puppy7.bark();
+        puppy7.play();
+
+
+        // --------------------------------------------------------
+        // Q8. Person -> Employee -> Manager
+        // --------------------------------------------------------
+        System.out.println("\n========== Q8 ==========");
+
+        ManagerQ8 manager8 = new ManagerQ8();
+
+        manager8.name = "Rohit";
+        manager8.employeeId = 201;
+        manager8.department = "Finance";
+
+        manager8.displayManager();
+
+
+        // --------------------------------------------------------
+        // Q9. Vehicle -> Car -> ElectricCar
+        // --------------------------------------------------------
+        System.out.println("\n========== Q9 ==========");
+
+        ElectricCarQ9 electricCar9 = new ElectricCarQ9();
+
+        electricCar9.start();
+        electricCar9.drive();
+        electricCar9.chargeBattery();
+        electricCar9.stop();
+
+
+        // --------------------------------------------------------
+        // Q10. Animal -> Dog and Cat
+        // --------------------------------------------------------
+        System.out.println("\n========== Q10 ==========");
+
+        DogQ10 dog10 = new DogQ10();
+        CatQ10 cat10 = new CatQ10();
+
+        dog10.eat();
+        dog10.bark();
+
+        cat10.eat();
+        cat10.meow();
+
+
+        // --------------------------------------------------------
+        // Q11. Person -> Student and Teacher
+        // --------------------------------------------------------
+        System.out.println("\n========== Q11 ==========");
+
+        StudentQ11 student11 = new StudentQ11();
+
+        student11.name = "Amit";
+        student11.course = "BCA";
+
+        student11.displayName();
+        student11.study();
+
+        TeacherQ11 teacher11 = new TeacherQ11();
+
+        teacher11.name = "Mrs. Sharma";
+        teacher11.subject = "Java";
+
+        teacher11.displayName();
+        teacher11.teach();
+
+
+        // --------------------------------------------------------
+        // Q12. Employee -> Developer and Manager
+        // --------------------------------------------------------
+        System.out.println("\n========== Q12 ==========");
+
+        DeveloperQ12 developer12 = new DeveloperQ12();
+
+        developer12.employeeName = "Karan";
+        developer12.employeeId = 301;
+        developer12.programmingLanguage = "Java";
+
+        developer12.displayEmployee();
+        developer12.writeCode();
+
+        ManagerQ12 manager12 = new ManagerQ12();
+
+        manager12.employeeName = "Neha";
+        manager12.employeeId = 302;
+        manager12.department = "HR";
+
+        manager12.displayEmployee();
+        manager12.conductMeeting();
+
+
+        // --------------------------------------------------------
+        // Q13. Method Overriding
+        // --------------------------------------------------------
+        System.out.println("\n========== Q13 ==========");
+
+        AnimalQ13 animal13;
+
+        animal13 = new DogQ13();
+        animal13.makeSound();
+
+        animal13 = new CatQ13();
+        animal13.makeSound();
+
+
+        // --------------------------------------------------------
+        // Q14. Employee Salary Calculation
+        // --------------------------------------------------------
+        System.out.println("\n========== Q14 ==========");
+
+        EmployeeQ14 employee14 = new EmployeeQ14();
+        ManagerQ14 manager14 = new ManagerQ14();
+
+        System.out.println("Employee Salary: "
+                + employee14.calculateSalary());
+
+        System.out.println("Manager Salary: "
+                + manager14.calculateSalary());
+
+
+        // --------------------------------------------------------
+        // Q15. Shape Area Overriding
+        // --------------------------------------------------------
+        System.out.println("\n========== Q15 ==========");
+
+        ShapeQ15 circle15 = new CircleQ15(5);
+        ShapeQ15 rectangle15 = new RectangleQ15(10, 5);
+
+        System.out.println("Circle Area: "
+                + circle15.calculateArea());
+
+        System.out.println("Rectangle Area: "
+                + rectangle15.calculateArea());
+
+
+        // --------------------------------------------------------
+        // Q16. Camera + MusicPlayer -> Smartphone
+        // --------------------------------------------------------
+        System.out.println("\n========== Q16 ==========");
+
+        SmartphoneQ16 phone16 = new SmartphoneQ16();
+
+        phone16.takePhoto();
+        phone16.playMusic();
+
+
+        // --------------------------------------------------------
+        // Q17. Printer + Scanner -> MultiFunctionMachine
+        // --------------------------------------------------------
+        System.out.println("\n========== Q17 ==========");
+
+        MultiFunctionMachineQ17 machine17 =
+                new MultiFunctionMachineQ17();
+
+        machine17.setMachineName("HP Printer");
+        machine17.setMachineId(501);
+
+        System.out.println("Machine Name: "
+                + machine17.getMachineName());
+
+        System.out.println("Machine ID: "
+                + machine17.getMachineId());
+
+        machine17.print();
+        machine17.scan();
+
+
+        // --------------------------------------------------------
+        // Q18. Vehicle -> Car -> ElectricCar + Electric
+        // --------------------------------------------------------
+        System.out.println("\n========== Q18 ==========");
+
+        ElectricCarQ18 electricCar18 =
+                new ElectricCarQ18();
+
+        electricCar18.start();
+        electricCar18.drive();
+        electricCar18.chargeBattery();
+
+
+        // --------------------------------------------------------
+        // Q19. Employee -> Developer + Programmer + Researcher
+        // --------------------------------------------------------
+        System.out.println("\n========== Q19 ==========");
+
+        DeveloperQ19 developer19 = new DeveloperQ19();
+
+        developer19.setName("Vikas");
+        developer19.setEmployeeId(601);
+
+        developer19.displayEmployee();
+        developer19.writeCode();
+        developer19.conductResearch();
+
+
+        // --------------------------------------------------------
+        // Q20. University Employee System
+        // --------------------------------------------------------
+        System.out.println("\n========== Q20 ==========");
+
+        // Teacher Object
+        TeacherQ20 teacher20 = new TeacherQ20();
+
+        teacher20.setEmployeeId(701);
+        teacher20.setEmployeeName("Dr. Sharma");
+        teacher20.setSalary(60000);
+        teacher20.subject = "Computer Science";
+
+        teacher20.displayDetails();
+        teacher20.teach();
+        teacher20.conductResearch();
+
+        System.out.println("Teacher Salary: "
+                + teacher20.calculateSalary());
+
+
+        // Visiting Teacher Object
+        VisitingTeacherQ20 visitingTeacher20 =
+                new VisitingTeacherQ20();
+
+        visitingTeacher20.setEmployeeId(702);
+        visitingTeacher20.setEmployeeName("Mr. Kumar");
+        visitingTeacher20.hoursWorked = 40;
+
+        visitingTeacher20.displayDetails();
+
+        System.out.println("Visiting Teacher Salary: "
+                + visitingTeacher20.calculateSalary());
+
+
+        // Admin Object
+        AdminQ20 admin20 = new AdminQ20();
+
+        admin20.setEmployeeId(703);
+        admin20.setEmployeeName("Mrs. Verma");
+        admin20.setSalary(55000);
+        admin20.department = "Administration";
+
+        admin20.displayDetails();
+        admin20.manageDepartment();
+
+        System.out.println("\n========== PROGRAM COMPLETED ==========");
+    }
+}
