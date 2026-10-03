@@ -1,0 +1,686 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// ============================================================
+// Q1. Generic Box
+// ============================================================
+
+class Box<T> {
+    private T value;
+
+    Box(T value) {
+        this.value = value;
+    }
+
+    T getValue() {
+        return value;
+    }
+}
+
+class Q1 {
+    public static void main(String[] args) {
+
+        Box<Integer> b1 = new Box<>(100);
+        Box<String> b2 = new Box<>("Hello");
+        Box<Double> b3 = new Box<>(25.5);
+
+        System.out.println("Integer: " + b1.getValue());
+        System.out.println("String: " + b2.getValue());
+        System.out.println("Double: " + b3.getValue());
+    }
+}
+
+
+// ============================================================
+// Q2. Generic Result
+// ============================================================
+
+class Result<T> {
+    private T marks;
+
+    Result(T marks) {
+        this.marks = marks;
+    }
+
+    T getMarks() {
+        return marks;
+    }
+}
+
+class Q2 {
+    public static void main(String[] args) {
+
+        Result<Integer> r1 = new Result<>(85);
+        Result<Double> r2 = new Result<>(91.5);
+
+        System.out.println("Integer Marks: " + r1.getMarks());
+        System.out.println("Double Marks: " + r2.getMarks());
+    }
+}
+
+
+// ============================================================
+// Q3. Generic Student
+// ============================================================
+
+class StudentQ3<T> {
+    private T id;
+
+    StudentQ3(T id) {
+        this.id = id;
+    }
+
+    void display() {
+        System.out.println("Student ID: " + id);
+    }
+}
+
+class Q3 {
+    public static void main(String[] args) {
+
+        StudentQ3<Integer> student = new StudentQ3<>(101);
+
+        student.display();
+    }
+}
+
+
+// ============================================================
+// Q4. Generic Pair
+// ============================================================
+
+class Pair<T, U> {
+    private T first;
+    private U second;
+
+    Pair(T first, U second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    void display() {
+        System.out.println("First: " + first);
+        System.out.println("Second: " + second);
+    }
+}
+
+class Q4 {
+    public static void main(String[] args) {
+
+        Pair<Integer, String> employee =
+                new Pair<>(101, "Rahul");
+
+        employee.display();
+    }
+}
+
+
+// ============================================================
+// Q5. Product Pair
+// ============================================================
+
+class Product<T, U> {
+    private T productId;
+    private U price;
+
+    Product(T productId, U price) {
+        this.productId = productId;
+        this.price = price;
+    }
+
+    void display() {
+        System.out.println(
+            "Product ID: " + productId +
+            ", Price: " + price
+        );
+    }
+}
+
+class Q5 {
+    public static void main(String[] args) {
+
+        Product<Integer, Double> p1 =
+                new Product<>(101, 500.50);
+
+        Product<Integer, Double> p2 =
+                new Product<>(102, 750.75);
+
+        Product<Integer, Double> p3 =
+                new Product<>(103, 999.99);
+
+        p1.display();
+        p2.display();
+        p3.display();
+    }
+}
+
+
+// ============================================================
+// Q6. Generic Employee
+// ============================================================
+
+class EmployeeQ6<T, U> {
+    private T employeeId;
+    private U employeeName;
+
+    EmployeeQ6(T employeeId, U employeeName) {
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
+    }
+
+    void display() {
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Employee Name: " + employeeName);
+    }
+}
+
+class Q6 {
+    public static void main(String[] args) {
+
+        EmployeeQ6<Integer, String> employee =
+                new EmployeeQ6<>(101, "Amit");
+
+        employee.display();
+    }
+}
+
+
+// ============================================================
+// Q7. Generic Method
+// ============================================================
+
+class GenericMethodQ7 {
+
+    static <T> void display(T value) {
+        System.out.println("Value: " + value);
+    }
+}
+
+class Q7 {
+    public static void main(String[] args) {
+
+        GenericMethodQ7.display(100);
+        GenericMethodQ7.display(25.5);
+        GenericMethodQ7.display("Hello");
+        GenericMethodQ7.display('A');
+    }
+}
+
+
+// ============================================================
+// Q8. Generic Method for Three Values
+// ============================================================
+
+class GenericMethodQ8 {
+
+    static <T> void displayThree(T a, T b, T c) {
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println();
+    }
+}
+
+class Q8 {
+    public static void main(String[] args) {
+
+        System.out.println("Integers:");
+        GenericMethodQ8.displayThree(10, 20, 30);
+
+        System.out.println("Strings:");
+        GenericMethodQ8.displayThree(
+                "Java", "Python", "C++"
+        );
+
+        System.out.println("Doubles:");
+        GenericMethodQ8.displayThree(
+                10.5, 20.5, 30.5
+        );
+    }
+}
+
+
+// ============================================================
+// Q9. Generic ArrayList
+// ============================================================
+
+class Q9 {
+    public static void main(String[] args) {
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+        numbers.add(40);
+        numbers.add(50);
+        numbers.add(60);
+        numbers.add(70);
+        numbers.add(80);
+        numbers.add(90);
+        numbers.add(100);
+
+        System.out.println("Numbers:");
+
+        for (Integer n : numbers) {
+            System.out.println(n);
+        }
+    }
+}
+
+
+// ============================================================
+// Q10. Generic String List
+// ============================================================
+
+class Q10 {
+    public static void main(String[] args) {
+
+        ArrayList<String> students = new ArrayList<>();
+
+        // add()
+        students.add("Aman");
+        students.add("Rahul");
+        students.add("Priya");
+        students.add("Neha");
+        students.add("Karan");
+
+        System.out.println("Original List:");
+        System.out.println(students);
+
+        // get()
+        System.out.println(
+            "First Student: " + students.get(0)
+        );
+
+        // set()
+        students.set(1, "Rohit");
+
+        System.out.println("After set():");
+        System.out.println(students);
+
+        // remove()
+        students.remove("Neha");
+
+        System.out.println("After remove():");
+        System.out.println(students);
+
+        // size()
+        System.out.println(
+            "Size: " + students.size()
+        );
+    }
+}
+
+
+// ============================================================
+// Q11. Search in Generic List
+// ============================================================
+
+class Q11 {
+    public static void main(String[] args) {
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+        numbers.add(40);
+        numbers.add(50);
+        numbers.add(60);
+        numbers.add(70);
+        numbers.add(80);
+        numbers.add(90);
+        numbers.add(100);
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number to search: ");
+        int search = sc.nextInt();
+
+        if (numbers.contains(search)) {
+            System.out.println(
+                search + " exists in the list."
+            );
+        } else {
+            System.out.println(
+                search + " does not exist in the list."
+            );
+        }
+
+        sc.close();
+    }
+}
+
+
+// ============================================================
+// Q12. Generic Container
+// ============================================================
+
+class Container<T> {
+
+    private T value;
+
+    void add(T value) {
+        this.value = value;
+    }
+
+    T get() {
+        return value;
+    }
+}
+
+class Q12 {
+    public static void main(String[] args) {
+
+        Container<Integer> intContainer =
+                new Container<>();
+
+        intContainer.add(100);
+
+        Container<String> stringContainer =
+                new Container<>();
+
+        stringContainer.add("Hello");
+
+        Container<Double> doubleContainer =
+                new Container<>();
+
+        doubleContainer.add(25.5);
+
+        System.out.println(
+            "Integer: " + intContainer.get()
+        );
+
+        System.out.println(
+            "String: " + stringContainer.get()
+        );
+
+        System.out.println(
+            "Double: " + doubleContainer.get()
+        );
+    }
+}
+
+
+// ============================================================
+// Q13. Generic Class with Three Parameters
+// ============================================================
+
+class StudentQ13<T, U, V> {
+
+    private T id;
+    private U name;
+    private V marks;
+
+    StudentQ13(T id, U name, V marks) {
+        this.id = id;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    void display() {
+        System.out.println(
+            "ID: " + id +
+            ", Name: " + name +
+            ", Marks: " + marks
+        );
+    }
+}
+
+class Q13 {
+    public static void main(String[] args) {
+
+        StudentQ13<Integer, String, Double> s1 =
+                new StudentQ13<>(101, "Aman", 85.5);
+
+        StudentQ13<Integer, String, Double> s2 =
+                new StudentQ13<>(102, "Priya", 90.0);
+
+        StudentQ13<Integer, String, Double> s3 =
+                new StudentQ13<>(103, "Rahul", 78.5);
+
+        s1.display();
+        s2.display();
+        s3.display();
+    }
+}
+
+
+// ============================================================
+// Q14. Generic Method and ArrayList
+// ============================================================
+
+class GenericListQ14 {
+
+    static <T> void displayList(ArrayList<T> list) {
+
+        for (T item : list) {
+            System.out.println(item);
+        }
+    }
+}
+
+class Q14 {
+    public static void main(String[] args) {
+
+        ArrayList<Integer> numbers =
+                new ArrayList<>();
+
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+        numbers.add(40);
+
+        System.out.println("Integer List:");
+
+        GenericListQ14.displayList(numbers);
+
+
+        ArrayList<String> names =
+                new ArrayList<>();
+
+        names.add("Aman");
+        names.add("Rahul");
+        names.add("Priya");
+        names.add("Neha");
+
+        System.out.println("\nString List:");
+
+        GenericListQ14.displayList(names);
+    }
+}
+
+
+// ============================================================
+// Q15. Mini Generic Student Management Program
+// ============================================================
+
+class StudentQ15<T, U, V> {
+
+    private T studentId;
+    private U studentName;
+    private V marks;
+
+    StudentQ15(T studentId, U studentName, V marks) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.marks = marks;
+    }
+
+    T getStudentId() {
+        return studentId;
+    }
+
+    U getStudentName() {
+        return studentName;
+    }
+
+    V getMarks() {
+        return marks;
+    }
+
+    void display() {
+        System.out.println(
+            "ID: " + studentId +
+            ", Name: " + studentName +
+            ", Marks: " + marks
+        );
+    }
+}
+
+class Q15 {
+
+    public static void main(String[] args) {
+
+        // ArrayList using generic Student class
+        ArrayList<StudentQ15<Integer, String, Double>> students =
+                new ArrayList<>();
+
+
+        // --------------------------------------------------------
+        // Add five students
+        // --------------------------------------------------------
+
+        students.add(
+            new StudentQ15<>(
+                101, "Aman", 85.5
+            )
+        );
+
+        students.add(
+            new StudentQ15<>(
+                102, "Rahul", 78.0
+            )
+        );
+
+        students.add(
+            new StudentQ15<>(
+                103, "Priya", 92.5
+            )
+        );
+
+        students.add(
+            new StudentQ15<>(
+                104, "Neha", 88.0
+            )
+        );
+
+        students.add(
+            new StudentQ15<>(
+                105, "Karan", 74.5
+            )
+        );
+
+
+        // --------------------------------------------------------
+        // Display all students
+        // --------------------------------------------------------
+
+        System.out.println("===== ALL STUDENTS =====");
+
+        for (StudentQ15<Integer, String, Double> student : students) {
+            student.display();
+        }
+
+
+        // --------------------------------------------------------
+        // get()
+        // --------------------------------------------------------
+
+        System.out.println("\n===== GET STUDENT =====");
+
+        StudentQ15<Integer, String, Double> firstStudent =
+                students.get(0);
+
+        firstStudent.display();
+
+
+        // --------------------------------------------------------
+        // Search for a student
+        // --------------------------------------------------------
+
+        int searchId = 103;
+        boolean found = false;
+
+        System.out.println("\n===== SEARCH =====");
+
+        for (StudentQ15<Integer, String, Double> student : students) {
+
+            if (student.getStudentId().equals(searchId)) {
+
+                System.out.println(
+                    "Student Found:"
+                );
+
+                student.display();
+
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println(
+                "Student not found."
+            );
+        }
+
+
+        // --------------------------------------------------------
+        // contains() demonstration
+        // --------------------------------------------------------
+
+        System.out.println("\n===== CONTAINS =====");
+
+        boolean containsStudent = students.contains(firstStudent);
+
+        System.out.println(
+            "First student exists: " + containsStudent
+        );
+
+
+        // --------------------------------------------------------
+        // size()
+        // --------------------------------------------------------
+
+        System.out.println("\n===== TOTAL STUDENTS =====");
+
+        System.out.println(
+            "Total Students: " + students.size()
+        );
+
+
+        // --------------------------------------------------------
+        // Type Safety
+        // --------------------------------------------------------
+
+        System.out.println("\n===== TYPE SAFETY =====");
+
+        StudentQ15<Integer, String, Double> safeStudent =
+                new StudentQ15<>(
+                    106,
+                    "Divya",
+                    95.5
+                );
+
+        safeStudent.display();
+
+        /*
+         * Type Safety:
+         *
+         * Student ID must be Integer.
+         * Student Name must be String.
+         * Marks must be Double.
+         *
+         * The following would give a compile-time error:
+         *
+         * StudentQ15<Integer, String, Double> wrong =
+         *     new StudentQ15<>(
+         *         "ABC",       // Wrong: String instead of Integer
+         *         123,        // Wrong: Integer instead of String
+         *         "90"        // Wrong: String instead of Double
+         *     );
+         */
+    }
+}
